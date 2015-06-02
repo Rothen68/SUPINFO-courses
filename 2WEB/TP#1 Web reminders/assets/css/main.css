@@ -1,0 +1,77 @@
+#container
+{
+	width: 80%;
+	margin: auto;
+}
+
+#container > header > img
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#container > header > h1
+{
+	display: inline-block;
+	font-size: 42px;
+	font-weight: bold;
+}
+
+#container > nav > ul
+{
+	display: block;
+	width: 160px;
+	margin: auto;
+	border: 1px solid black;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+#container > nav > ul > li
+{
+	display: inline-block;
+	padding: 7px 5px;
+	text-align: center;
+	border-right: 1px solid black;
+}
+
+#container > nav > ul > li:first-child
+{
+	margin-left:5px;
+}
+
+
+#container > nav > ul > li:last-child
+{
+	border-right: none;
+}
+
+#container > .content > article > section > h1
+{
+	padding: 7px 5px;
+	margin: 10px 0 20px 0;
+	font-size: 28px;
+}
+
+#container > .content > article > section > table, #container > .content > article > section > table *
+{
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+#container > .content > article > section > table *
+{
+	padding: 5px;
+}
+
+#container > .content > article > section > table tr
+{
+	text-align: center
+}
+
+#container > footer
+{
+	border-top : 1px solid black;
+	margin-top: 20px;
+	padding-top: 5px;
+}
