@@ -24,8 +24,6 @@ if(isset($_POST['submit']))
 	}
 }
 
-if(isset($_SESSION['username']))
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -48,3 +46,4 @@ if(isset($_SESSION['username']))
 	</form>
 </body>
 </html>
+
