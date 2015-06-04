@@ -18,7 +18,7 @@ Array.prototype.shuffle = function() {
 
 function randomize()
 {
-	var students = ["Julien Berton", "Toma BROCHARD", "Anthony CLAIN", "Alexandre D'HERBECOURT", "Clément GAUTHIER", "Alexandre GENG", "Dominique HAAS", "Jean Hugues HEW KIAN CHONG", "Léo JESER", "Amir MECHREKY", "Axel MEYER", "Alexandre MISSNER", "Ngoc Hoa NGUYEN", "Rémy SCHMIDT", "Qunetin SCHNEIDER", "Laura SPECK"];
+	var students = ["Julien Berton", "Toma BROCHARD", "Anthony CLAIN", "Alexandre D'HERBECOURT", "Clément GAUTHIER", "Alexandre GENG", "Dominique HAAS", "Jean Hugues HEW KIAN CHONG", "Léo JESER", "Amir MECHREKY", "Axel MEYER", "Alexandre MISSNER", "Ngoc Hoa NGUYEN", "Rémy SCHMIDT", "Quentin SCHNEIDER", "Laura SPECK"];
 	students.shuffle();
 	document.getElementById("container").innerHTML = students[0]
 }
