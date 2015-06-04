@@ -2,7 +2,7 @@
 session_start();
 
 // S'il y a eu envoi de formulaire
-if(isset($_POST['submit']) || (isset($_COOKIE['username']) && isset($_COOKIE['password']) ))
+if(isset($_POST['submit']))
 {
 	if(isset($_POST['submit']))
 	{
@@ -24,7 +24,7 @@ if(isset($_POST['submit']) || (isset($_COOKIE['username']) && isset($_COOKIE['pa
 	}
 }
 
-if(isset($_SESSION['']))
+if(isset($_SESSION['username']))
 
 ?>
 <!doctype html>
