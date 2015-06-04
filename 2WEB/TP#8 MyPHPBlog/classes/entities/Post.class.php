@@ -8,7 +8,7 @@ class Post
 	private $publicationDate;
 	private $user;
 
-	public function __construct($id, $title, $body, $publicationDate, $user)
+	public function __construct($id, $title, $body, $publicationDate, $user=null)
 	{
 		$this->id = $id;
 		$this->title = $title;
@@ -64,6 +64,16 @@ class Post
 	public function setUser($user)
 	{
 		$this->user = $user;
+	}
+
+	public function getUserId()
+	{
+		return $this->userId;
+	}
+
+	public function setUserId($id)
+	{
+		$this->userId = $user;
 	}
 
 }

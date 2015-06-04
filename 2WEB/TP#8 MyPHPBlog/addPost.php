@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/classes/manager/SimplePostManager.class.php');
+require_once(__DIR__.'/classes/manager/PdoPostManager.class.php');
 
 session_start();
 
@@ -7,7 +7,7 @@ if(!isset($_SESSION['user'])):
 	header('Location: ./login.php');
 else:
 
-	$PM = new SimplePostManager();
+	$PM = new PdoPostManager();
 
 	// si le champs submit est présent, alors le formulaire a été envoyé
 	if(isset($_POST['submit']))

@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/classes/manager/SimplePostManager.class.php');
+require_once(__DIR__.'/classes/manager/PdoPostManager.class.php');
 require_once(__DIR__.'/classes/entities/User.class.php');
 
 session_start();
@@ -9,7 +9,7 @@ if(!isset($_SESSION['user'])):
 	header('Location: ./login.php');
 else:
 
-$PM = new SimplePostManager();
+$PM = new PdoPostManager();
 
 ?>
 

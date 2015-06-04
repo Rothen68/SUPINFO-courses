@@ -1,12 +1,12 @@
 <?php 
 
-require(__DIR__.'/classes/manager/SimpleUserManager.class.php');
+require(__DIR__.'/classes/manager/PdoUserManager.class.php');
 
 session_start();
 
 if(isset($_POST['login']) && isset($_POST['password']))
 {
-	$UM = new SimpleUserManager();
+	$UM = new PdoUserManager();
 	$user = $UM->authenticate($_POST['login'], $_POST['password']);
 
 	if($user !== false)
