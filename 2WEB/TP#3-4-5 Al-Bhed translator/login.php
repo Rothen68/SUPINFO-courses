@@ -9,6 +9,11 @@ if(isset($_POST['submit']))
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 	}
+	else if(isset($_COOKIE['username']) && isset($_COOKIE['password']))
+	{
+		$username = $_COOKIE['username'];
+		$password = $_COOKIE['password'];
+	}
 
 
 	if($username == 'Plop' && $password == '1234')
@@ -16,13 +21,22 @@ if(isset($_POST['submit']))
 		$_SESSION['username'] = 'Plop';
 		$_SESSION['password'] = '1234';
 
+		if(isset($_POST['submit']) && isset($_POST['cookie']))
+		{
+			setcookie('username', 'Plop', time() + 60 * 60 * 24 * 30);
+			setcookie('password', '1234', time() + 60 * 60 * 24 * 30);
+		}
+
 		header('Location: ./index.php');
 	}
 	else
 	{
 		$error = true;
+		setcookie('username', '', 1);
+		setcookie('password', '', 1);
 	}
 }
+
 
 ?>
 <!doctype html>
@@ -46,4 +60,3 @@ if(isset($_POST['submit']))
 	</form>
 </body>
 </html>
-
