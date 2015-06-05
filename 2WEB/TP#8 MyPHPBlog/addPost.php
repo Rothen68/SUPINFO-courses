@@ -27,6 +27,7 @@ else:
 </head>
 <body>
 	<h1>Add Post Page</h1>
+	<?php include('./inc/menu.php'); ?>
 	<form action="#" method="post">
 		<label for="title">Title:</label>
 		<input type="text" id="title" name="title" value="" />

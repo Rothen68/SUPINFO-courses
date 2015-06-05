@@ -16,21 +16,30 @@ $PM = new PdoPostManager();
 <!doctype html>
 <head>
 	<title>Posts list</title>
+	<meta charset="utf-8" />
 </head>
 <body>
 	<h1>Posts List Page</h1>
-	<ul>
+	<?php include('./inc/menu.php'); ?>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Body</th>
+			<th>Date</th>
+			<th>User</th>
+			<th>Action</th>
+		</tr>
 		<?php foreach($PM->findAllPosts() as $post): ?>
-		<li>
-			<ul>
-				<li><?=$post->getTitle()?></li>
-				<li><?=$post->getBody()?></li>
-				<li><?=date('d/m/Y H:i:s', $post->getPublicationDate())?></li>
-				<li><?=$post->getUser()->firstname.' '.$post->getUser()->lastname?></li>
-			</ul>
-		</li>
+		<tr>
+			<td><?=$post->getTitle()?></td>
+			<td><?=$post->getBody()?></td>
+			<td><?=date('d/m/Y H:i:s', $post->getPublicationDate())?></td>
+			<td><?=$post->getUser()->firstname.' '.$post->getUser()->lastname?></td>
+			<td>
+				<a href="display.php?id=<?=$post->getId()?>">display</a>
+		</tr>
 		<?php endforeach; ?>
-	</ul>
+	</table>
 </body>
 </html>
 

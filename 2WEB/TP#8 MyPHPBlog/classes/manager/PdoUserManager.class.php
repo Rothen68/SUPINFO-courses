@@ -1,24 +1,19 @@
 <?php
 
-require_once(__DIR__.'/../config/database.php');
+require_once(__DIR__.'/AbstractPdoManager.class.php');
 require_once(__DIR__.'/UserManager.class.php');
 require_once(__DIR__.'/../entities/User.class.php');
 
-class PdoUserManager implements UserManager
+class PdoUserManager extends AbstractPdoManager implements UserManager
 {
-	static public $dtb = null;
-
-	public function __construct()
-	{
-		if(is_null(self::$dtb))
-		{
-			self::$dtb = new PDO(DB_DSN, DB_USER, DB_PASSWD);
-		}
-	}
-
 	public function authenticate($email, $password)
 	{
-		$stmt = self::$dtb->query('SELECT * FROM users WHERE email = "'.htmlspecialchars($email).'" AND password = "'.htmlspecialchars($password).'"');
+		$stmt = $this->dtb->prepare('SELECT * FROM users WHERE email = :email AND password = :password');
+		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
+		$stmt->bindValue(':password', $password, PDO::PARAM_STR);
+
+		$stmt->execute();
+
 		$data = $stmt->fetch();
 		$stmt->closeCursor();
 
@@ -32,7 +27,10 @@ class PdoUserManager implements UserManager
 
 	public function findUserById($id)
 	{
-		$stmt = self::$dtb->query('SELECT * FROM users WHERE id = '.intval($id));
+		$stmt = $this->dtb->prepare('SELECT * FROM users WHERE id = :id');
+		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+		$stmt->execute();
+		
 		$data = $stmt->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User', array('id', 'lastname', 'firstname', 'email', 'password'));
 		$stmt->closeCursor();
 

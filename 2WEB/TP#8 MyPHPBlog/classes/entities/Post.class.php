@@ -7,14 +7,16 @@ class Post
 	private $body;
 	private $publicationDate;
 	private $user;
+	private $comments;
 
-	public function __construct($id, $title, $body, $publicationDate, $user=null)
+	public function __construct($id, $title, $body, $publicationDate, $user=null, $comments=null)
 	{
 		$this->id = $id;
 		$this->title = $title;
 		$this->body = $body;
 		$this->publicationDate = $publicationDate;
 		$this->user = $user;
+		$this->comments = is_null($comments) ? array() : $comments;
 	}
 
 	public function getId()
@@ -74,6 +76,16 @@ class Post
 	public function setUserId($id)
 	{
 		$this->userId = $user;
+	}
+
+	public function getComments()
+	{
+		return $this->comments;
+	}
+
+	public function setComments($comments)
+	{
+		return $this->comments = $comments;
 	}
 
 }
