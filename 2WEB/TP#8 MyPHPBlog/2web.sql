@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 04 Juin 2015 à 17:56
+-- Généré le :  Ven 05 Juin 2015 à 13:22
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.6.4
 
@@ -23,6 +23,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(255) unsigned NOT NULL AUTO_INCREMENT,
+  `body` text NOT NULL,
+  `postID` int(255) unsigned NOT NULL,
+  `userID` int(255) unsigned NOT NULL,
+  `publicationDate` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Contenu de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `body`, `postID`, `userID`, `publicationDate`) VALUES
+(2, 'test', 5, 1, 1433497619),
+(3, 'test', 5, 1, 1433497631),
+(7, 'blop', 5, 1, 1433497775),
+(6, 'test', 0, 1, 1433497742),
+(8, 'test', 5, 1, 1433498111),
+(9, 'test', 5, 1, 1433498117),
+(10, 'test', 9, 1, 1433500261),
+(11, 'test', 9, 1, 1433500301),
+(12, 'test', 9, 1, 1433500339),
+(13, 'test', 9, 1, 1433500392);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `posts`
 --
 
@@ -33,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `publicationDate` int(11) NOT NULL,
   `userID` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `posts`
@@ -41,7 +72,11 @@ CREATE TABLE IF NOT EXISTS `posts` (
 
 INSERT INTO `posts` (`id`, `title`, `body`, `publicationDate`, `userID`) VALUES
 (5, 'blop', 'blop', 1433433227, 1),
-(4, 'test', 'test', 1433432356, 1);
+(4, 'test', 'test', 1433432356, 1),
+(6, ':title', ':body', 1433490718, 1),
+(7, 'blop blop', 'kamui', 1433490811, 1),
+(8, 'kamui', 'kamui', 1433497500, 1),
+(9, 'myPost', 'MyBody', 1433500251, 1);
 
 -- --------------------------------------------------------
 
